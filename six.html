@@ -114,7 +114,7 @@
             color: #007bff;
         }
 
-        .cart_section span#rupeya_paisa {
+        .cart_section span#rupees {
             font-size: 20px;
         }
 
@@ -166,7 +166,7 @@
         </div>
         <div class="cart_section">
             <span >Total Price:- Rs.</span>
-            <span id="rupeya_paisa"> 0.00</span>
+            <span id="rupees"> 0.00</span>
         </div>
         <br>
         <br>
@@ -178,7 +178,7 @@
         let searchbutton=document.getElementById("search_button");
         let product=document.querySelector("#table_value");
         let searchinput=document.getElementById("search_input");
-        let rupeya=document.getElementById("rupeya_paisa");
+        let rupee=document.getElementById("rupees");
         const accessuserdata=(data)=>{
             let productid=document.getElementById(data.results[0].id);
             if(productid){
@@ -203,8 +203,8 @@
                     let deleteButton = fpara.querySelector(".delete-button");
                     deleteButton.addEventListener("click", () => {
                         fpara.remove();
-                        let amend=roundToTwo(rupeya.innerText-data.results[0].price);
-                         rupeya.innerText=`${amend}`;
+                        let amend=roundToTwo(rupee.innerText-data.results[0].price);
+                         rupee.innerText=`${amend}`;
                     });
                     let testing = fpara.querySelector(".quantity-input");
                     testing.addEventListener("input",()=>{
@@ -212,10 +212,10 @@
                     });
        
             product.appendChild(fpara);
-            let prev=rupeya.innerText;
+            let prev=rupee.innerText;
             let newvalue = data.results[0].price;
             let total =Number(newvalue) + Number(prev);
-            rupeya.innerText=roundToTwo(total);
+            rupee.innerText=roundToTwo(total);
         };
         async function fetchdata(content){
             searchbutton.innerText="adding...";
